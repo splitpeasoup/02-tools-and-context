@@ -1,10 +1,6 @@
 'use strict';
 
 const fp = {};
-const sum = (n)=>{ return 2 + n;};
-const doubler = (n)=> {2 * n;};
-const isEven = (n)=>{n % 2 === 0;};
-
 
 fp.forEach = (arr, cb)=>{ 
 
@@ -19,7 +15,7 @@ fp.forEach = (arr, cb)=>{
 fp.map = (arr, cb)=>{
 
   let results = [];
-  for(let i= 0; i < arr.length; i++){
+  for(let i = 0; i < arr.length; i++){
     let element = arr[i];
     let result = cb(element);
     results.push(result);
@@ -42,11 +38,11 @@ fp.filter = (arr, cb)=>{
 
 };
 
-fp.reduce = (arr,cb)=>{
+fp.reduce = (arr, cb)=>{
   let results;
   for(let i = 0; i < arr.length; i++){
 
-    results = results + arr[i];
+    results = cb(arr[i], results);
 
   }
   return results;
