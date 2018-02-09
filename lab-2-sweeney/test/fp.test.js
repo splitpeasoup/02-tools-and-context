@@ -3,7 +3,7 @@
 const fp = require('../lib/fp.js');
 const sum = (a,b)=>{ return a + b;};
 const doubler = (n)=> {2 * n;};
-const isEven = (n)=>{n % 2 === 0;};
+const isEven = (n)=>{return n % 2 === 0;};
 
 const answer = isEven(6);
 console.log("answer isEven", answer);
@@ -33,8 +33,7 @@ describe('given an array will filter and results true to isEven function',()=> {
   it('should return [4,10,12,36] when given [3,4,7,10,11,12,31,36]',()=>{
     let arr = [3,4,7,10,11,12,31,36];
     let result = fp.filter(arr, isEven);
-    console.log("filter results", result);
-    expect(result).toBe(expected);
+    expect(result).toEqual(expected);
   });
 
 });

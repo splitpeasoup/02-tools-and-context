@@ -32,13 +32,12 @@ fp.filter = (arr, cb)=>{
   for(let i = 0; i < arr.length; i++){
     let element = arr[i];
     let result = cb(element);
-    console.log("what is the isEven return?", result);
     if(result === true){
+      console.log("element",element);
       results.push(element);
-    };
-    console.log("filter results",results);
-    return results;
+    }
   }
+  return results;
 
 };
 
