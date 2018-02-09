@@ -21,6 +21,7 @@ fp.map = (arr, cb)=>{
     let result = cb(element);
     results.push(result);
   }
+  console.log("map results",results);
   return results;
 
 };
@@ -31,9 +32,11 @@ fp.filter = (arr, cb)=>{
   for(let i = 0; i < arr.length; i++){
     let element = arr[i];
     let result = cb(element);
+    console.log("what is the isEven return?", result);
     if(result === true){
       results.push(element);
     };
+    console.log("filter results",results);
     return results;
   }
 
@@ -41,14 +44,9 @@ fp.filter = (arr, cb)=>{
 
 fp.reduce = (arr, cb)=>{
   let results = 0;
-  console.log("arr",arr);
   for(let i = 0; i < arr.length; i++){
-    console.log("arr[i]", arr[i]);
     results = cb(arr[i], results);
-
   }
-
-  console.log("results", results);
   return results;
 };
 
