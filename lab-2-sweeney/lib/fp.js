@@ -2,6 +2,7 @@
 
 const fp = {};
 
+
 fp.forEach = (arr, cb)=>{ 
 
   for(let i = 0; i < arr.length; i++){
@@ -39,15 +40,18 @@ fp.filter = (arr, cb)=>{
 };
 
 fp.reduce = (arr, cb)=>{
-  let results;
+  let results = 0;
+  console.log("arr",arr);
   for(let i = 0; i < arr.length; i++){
-
+    console.log("arr[i]", arr[i]);
     results = cb(arr[i], results);
 
   }
+
+  console.log("results", results);
   return results;
 };
 
 
 
-module.export = fp;
+module.exports = fp;
