@@ -2,8 +2,8 @@
 
 const fp = require('../lib/fp.js');
 const sum = (a,b)=>{ return a + b;};
-const doubler = (n)=> {2 * n;};
-const isEven = (n)=>{n % 2 === 0;};
+const doubler = (n)=> {return 2 * n;};
+const isEven = (n)=>{return n % 2 === 0;};
 
 const answer = isEven(6);
 console.log("answer isEven", answer);
@@ -20,11 +20,11 @@ describe('given an array will reduce to a single number according to function', 
 
 describe('given an array will map by doubling all elements and return new array', () => {
   let expected = [4,6,8,10];
-  it('should return [4,6,8,10] when given [2,3,4,5]',()=>{
+  it('should return mapped [4,6,8,10] when given [2,3,4,5]',()=>{
     let arr = [2,3,4,5];
     let result = fp.map(arr, doubler);
     console.log("result doubler map test", result);
-    expect(result).toBe(expected);
+    expect(result).toEqual(expected);
   });
 });
 
@@ -33,8 +33,18 @@ describe('given an array will filter and results true to isEven function',()=> {
   it('should return [4,10,12,36] when given [3,4,7,10,11,12,31,36]',()=>{
     let arr = [3,4,7,10,11,12,31,36];
     let result = fp.filter(arr, isEven);
-    console.log("filter results", result);
-    expect(result).toBe(expected);
+    expect(result).toEqual(expected);
   });
 
+});
+
+describe('given an array will apply a doubler function to each index of an array, modifying the existing array by doubling all elements and return new array', () => {
+  let expected = [4,6,8,10];
+  it('should return [4,6,8,10] when given [2,3,4,5]',()=>{
+    let arr = [2,3,4,5];
+    fp.forEach(arr, doubler);
+    let result = arr;
+    console.log("result doubler map test", result);
+    expect(result).toEqual(expected);
+  });
 });

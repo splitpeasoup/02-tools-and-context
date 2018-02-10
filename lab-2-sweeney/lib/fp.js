@@ -4,11 +4,13 @@ const fp = {};
 
 
 fp.forEach = (arr, cb)=>{ 
+  
 
   for(let i = 0; i < arr.length; i++){
     let element = arr[i];
     let result = cb(element);
     arr[i] = result;
+  
   }
 
 };
@@ -16,9 +18,12 @@ fp.forEach = (arr, cb)=>{
 fp.map = (arr, cb)=>{
 
   let results = [];
+  console.log("arr-map",arr);
   for(let i = 0; i < arr.length; i++){
+    console.log("arr-map-for",arr);
     let element = arr[i];
     let result = cb(element);
+    console.log("map result-for",result);
     results.push(result);
   }
   console.log("map results",results);
@@ -32,13 +37,12 @@ fp.filter = (arr, cb)=>{
   for(let i = 0; i < arr.length; i++){
     let element = arr[i];
     let result = cb(element);
-    console.log("what is the isEven return?", result);
     if(result === true){
+      console.log("element",element);
       results.push(element);
-    };
-    console.log("filter results",results);
-    return results;
+    }
   }
+  return results;
 
 };
 
